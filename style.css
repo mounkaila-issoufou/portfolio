@@ -530,6 +530,13 @@ h2::before {
     border-radius: 16px;
 
     backdrop-filter: blur(8px);
+
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #e5e7eb;
+
+    line-height: 1.6;
+    margin-bottom: 12px;
 }
 
 /* TITRE SECTION */
@@ -541,15 +548,7 @@ h2::before {
     margin-bottom: 16px;
 }
 
-/* INTRO (ACCROCHE) */
-.about {
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: #e5e7eb;
 
-    line-height: 1.6;
-    margin-bottom: 12px;
-}
 
 /* PARAGRAPHE */
 .about-content p {
