@@ -617,3 +617,106 @@ h2::before {
     color: #e5e7eb;
     font-weight: 500;
 }
+/* ========================= */
+/* CHANGEOVER SPECIFIC       */
+/* ========================= */
+
+/* HERO plus impactant */
+.hero {
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.3;
+}
+
+/* Triptych plus équilibré */
+.triptych {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+}
+
+/* Section spacing amélioré */
+.section {
+    margin-top: 50px;
+}
+
+/* Accent industriel (subtil mais pro) */
+.section h2 {
+    color: #f3f4f6;
+}
+
+/* CTA plus premium */
+.contact .cta {
+    margin-top: 15px;
+    padding: 12px 22px;
+    font-size: 0.9rem;
+}
+
+/* ========================= */
+/* VISUAL BOOST (IMPORTANT)  */
+/* ========================= */
+
+/* effet glass + profondeur */
+.visual-card {
+    backdrop-filter: blur(6px);
+}
+
+/* overlay gradient pro */
+.visual-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(11, 18, 32, 0.7),
+        rgba(11, 18, 32, 0)
+    );
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.visual-card:hover::before {
+    opacity: 1;
+}
+
+/* ========================= */
+/* MICRO INTERACTIONS        */
+/* ========================= */
+
+/* cards plus vivantes */
+.small-card:hover {
+    background: rgba(56, 189, 248, 0.12);
+}
+
+/* stat plus lisible */
+.stat h3 {
+    letter-spacing: -0.2px;
+}
+
+/* ========================= */
+/* RESPONSIVE AMÉLIORÉ       */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .triptych {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .list-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 1.7rem;
+    }
+}
