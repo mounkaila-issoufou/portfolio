@@ -39,17 +39,17 @@
 
         <div class="card problem">
             <h3>Problème</h3>
-            <p>Arrêts fréquents sans lecture claire des causes</p>
+            <p>Arrêts non qualifiés → perte de visibilité sur la performance réelle</p>
         </div>
 
         <div class="card action">
-            <h3>Action</h3>
-            <p>Structuration et analyse des pertes de production</p>
+            <h3>Approche</h3>
+            <p>Analyse terrain + structuration des données de production</p>
         </div>
 
         <div class="card impact">
-            <h3>Impact</h3>
-            <p>Réduction des pertes et amélioration mesurable du TRS</p>
+            <h3>Résultat</h3>
+            <p>Identification des pertes majeures et amélioration du pilotage TRS</p>
         </div>
 
     </section>
@@ -60,16 +60,23 @@
 
         <h2>Suivi de performance</h2>
 
+        <!-- CONTEXTE GLOBAL -->
+        <p class="subtitle" style="text-align:left; margin-bottom:15px;">
+            Analyse des pertes et des arrêts pour piloter la performance en temps réel
+        </p>
+
         <div class="visual-container">
 
+            <!-- CARD 1 -->
             <div class="visual-card">
                 <img src="../assets/dashboard.gif" alt="Vue globale performance">
-                <p>Vue globale TRS</p>
+                <p> Vue globale TRS – suivi des pertes en temps réel</p>
             </div>
 
+            <!-- CARD 2 -->
             <div class="visual-card">
                 <img src="../assets/downtime_investigation.gif" alt="Analyse des arrêts">
-                <p>Analyse des arrêts</p>
+                <p> Analyse des arrêts machines – identification des causes</p>
             </div>
 
         </div>
@@ -84,16 +91,14 @@
 
         <div class="mini-card">
             <p>
-                Atelier de conditionnement agroalimentaire avec plusieurs lignes de production
-                (type fromagerie / packaging).
+            Ligne de production agroalimentaire avec problématique de pertes de performance non visibles au quotidien.
             </p>
         </div>
 
         <div class="mini-card">
             <p>
-                Objectif : comprendre les pertes et aider les équipes à piloter la performance
-                plus simplement au quotidien.
-            </p>
+            Objectif : rendre les causes d’arrêts exploitables pour les équipes terrain.
+            </p>    
         </div>
 
     </section>
@@ -106,11 +111,11 @@
 
         <div class="list-cards">
 
-            <div class="small-card">Fiabilisation des données de production</div>
-            <div class="small-card">Analyse des causes d’arrêts machines</div>
-            <div class="small-card">Regroupement des causes de pertes</div>
-            <div class="small-card">Création d’indicateurs TRS</div>
-            <div class="small-card">Mise en place d’un outil de pilotage terrain</div>
+            <div class="small-card">Collecte et fiabilisation des données de production</div>
+            <div class="small-card">Analyse des arrêts machines en conditions réelles</div>
+            <div class="small-card">Structuration des causes de pertes (Pareto)</div>
+            <div class="small-card">Construction d’indicateurs TRS exploitables terrain</div>
+            <div class="small-card">Support à la prise de décision opérationnelle</div>
 
         </div>
 
@@ -125,18 +130,18 @@
         <div class="stats">
 
             <div class="stat">
-                <h3>+ Fiabilité</h3>
-                <p>Données de production structurées et exploitables</p>
+                <h3>+ Visibilité</h3>
+                <p>des pertes de production en temps réel</p>
             </div>
 
             <div class="stat">
-                <h3>Pareto des pertes</h3>
-                <p>Identification des 20% de causes générant 80% des arrêts</p>
+                <h3>Pareto 80/20</h3>
+                <p>des causes d’arrêts identifiées</p>
             </div>
 
             <div class="stat">
-                <h3>Pilotage terrain</h3>
-                <p>Décisions plus rapides et ciblées sur les pertes critiques</p>
+                <h3>Décisions</h3>
+                <p>plus rapides et ciblées sur le terrain</p>
             </div>
 
         </div>
@@ -176,45 +181,93 @@
     <!-- CTA -->
     <section class="contact">
         <p>
-            Ce projet illustre ma capacité à identifier et réduire les pertes de production pour améliorer le TRS.        </p>
+        Vous souhaitez améliorer la performance de votre ligne de production ou réduire les pertes ?
+        </p>
 
         <a href="mailto:abdoulrazak034@gmail.com" class="cta">Me contacter</a>
     </section>
 
-</div>
-<div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-img" src="">
-</div>
-<script>
-const cards = document.querySelectorAll(".visual-card img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.querySelector(".lightbox-img");
-const closeBtn = document.querySelector(".lightbox .close");
+    </div>
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <div class="lightbox-content">
+            <img class="lightbox-img" src="">
+        </div>
+    </div>
 
-cards.forEach(img => {
-    img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
+    <script>
+    
+    const images = document.querySelectorAll(".visual-card img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.querySelector(".lightbox-img");
+    const closeBtn = document.querySelector(".lightbox .close");
+
+    let scale = 1;
+
+    let isDragging = false;
+    let startX, startY, translateX = 0, translateY = 0;
+
+    lightboxImg.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+        lightboxImg.style.cursor = "grabbing";
     });
-});
 
-closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-});
+    document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
 
-lightbox.addEventListener("click", (e) => {
-    if(e.target !== lightboxImg) {
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+
+        lightboxImg.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+    });
+
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+        lightboxImg.style.cursor = "zoom-in";
+    });
+    // OPEN
+    images.forEach(img => {
+        img.addEventListener("click", () => {
+            lightbox.style.display = "flex";
+            lightboxImg.src = img.src;
+
+            scale = 1;
+            lightboxImg.style.transform = "scale(1)";
+        });
+    });
+
+    // CLOSE
+    function closeLightbox() {
         lightbox.style.display = "none";
     }
-});
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        lightbox.style.display = "none";
-    }
-});
+    closeBtn.addEventListener("click", closeLightbox);
 
-</script>
+    // CLICK OUTSIDE
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // ESC
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeLightbox();
+        }
+    });
+
+    // ZOOM SCROLL
+    lightbox.addEventListener("wheel", (e) => {
+        e.preventDefault();
+
+        scale += e.deltaY * -0.001;
+        scale = Math.min(Math.max(1, scale), 4);
+
+        lightboxImg.style.transform = `scale(${scale})`;
+    });
+    </script>
 </body>
 </html>
