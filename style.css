@@ -444,6 +444,62 @@ h2::before {
     cursor: pointer;
 }
 
+/* Container */
+.visual-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover global (effet premium) */
+.visual-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Image */
+.visual-img {
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto 12px auto;
+    display: block;
+
+    /* animation légère */
+    animation: visualFade 1.2s ease-out;
+    transition: transform 0.4s ease;
+}
+
+/* Interaction utilisateur */
+.visual-card:hover .visual-img {
+    transform: scale(1.03);
+}
+
+/* Animation d’apparition (clean, pro) */
+@keyframes visualFade {
+    0% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Texte */
+.visual-card p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.visual-card strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
 
 .visual-card:hover {
     transform: translateY(-3px);
