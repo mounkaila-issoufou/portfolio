@@ -843,3 +843,133 @@ h2::before {
     padding: 4px 6px;
     border-radius: 6px;
 }
+
+/* ========================= */
+/* FLOW SYSTEM (PREMIUM)     */
+/* ========================= */
+
+.flow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+}
+
+/* BLOC */
+.flow-step {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    padding: 10px 14px;
+    border-radius: 10px;
+
+    font-size: 0.8rem;
+    color: #d1d5db;
+
+    white-space: nowrap;
+
+    transition: all 0.25s ease;
+}
+
+/* HOVER SUBTIL */
+.flow-step:hover {
+    transform: translateY(-2px);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+/* ÉTAPE FINALE (IMPORTANT) */
+.flow-step.highlight {
+    background: rgba(52, 211, 153, 0.1);
+    border-color: rgba(52, 211, 153, 0.4);
+    color: #34d399;
+    font-weight: 500;
+}
+
+/* FLÈCHES */
+.flow-arrow {
+    color: #38bdf8;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+.flow-step {
+    backdrop-filter: blur(6px);
+}
+
+/* ========================= */
+/* IMAGE EXPLAINED           */
+/* ========================= */
+
+.visual-explained {
+    position: relative;
+    margin-top: 20px;
+}
+
+.visual-explained img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* ZONES */
+.zone {
+    position: absolute;
+    border: 2px solid rgba(56, 189, 248, 0.8);
+    border-radius: 8px;
+
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+/* LABEL */
+.zone span {
+    position: absolute;
+    top: -22px;
+    left: 0;
+
+    background: rgba(0,0,0,0.8);
+    color: #38bdf8;
+
+    font-size: 0.7rem;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+/* HOVER */
+.zone:hover {
+    background: rgba(56, 189, 248, 0.1);
+}
+
+/* POSITIONNEMENT (à ajuster si besoin) */
+
+/* TRS */
+.z1 {
+    top: 20%;
+    left: 3%;
+    width: 18%;
+    height: 20%;
+}
+
+/* KPI blocs */
+.z2 {
+    top: 20%;
+    left: 22%;
+    width: 77%;
+    height: 20%;
+}
+
+/* tendances */
+.z3 {
+    top: 45%;
+    left: 3%;
+    width: 95%;
+    height: 25%;
+}
+
+/* pareto / analyse */
+.z4 {
+    bottom: 5%;
+    left: 3%;
+    width: 95%;
+    height: 20%;
+}
